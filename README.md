@@ -42,10 +42,9 @@ should be small, reviewable, and verified before review.
 
 ## Security
 
-See [SECURITY.md](SECURITY.md) for vulnerability reporting guidance. Replace
-the default security policy before publishing the generated repository.
-
-These links assume this README has been copied to the generated repository root.
+diffticket reads local git metadata and package files only. It does not call
+hosted services or transmit diff contents. See [SECURITY.md](SECURITY.md) for
+vulnerability reporting guidance.
 
 ## License
 
