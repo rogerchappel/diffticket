@@ -16,7 +16,7 @@ function parseNameStatusLine(line: string): DiffFile {
   if (status === "renamed" || status === "copied") {
     return {
       path: secondPath ?? firstPath ?? "",
-      previousPath: firstPath,
+      ...(firstPath !== undefined ? { previousPath: firstPath } : {}),
       status,
       binary: false
     };
@@ -32,12 +32,19 @@ function parseNameStatusLine(line: string): DiffFile {
 export function mergeStat(files: readonly DiffFile[], stat: string): DiffFile[] {
   const counts = parseStat(stat);
 
-  return files.map((file) => ({
-    ...file,
-    additions: counts.get(file.path)?.additions,
-    deletions: counts.get(file.path)?.deletions,
-    binary: counts.get(file.path)?.binary ?? file.binary
-  }));
+  return files.map((file) => {
+    const count = counts.get(file.path);
+    if (!count) {
+      return file;
+    }
+
+    return {
+      ...file,
+      additions: count.additions,
+      deletions: count.deletions,
+      binary: count.binary
+    };
+  });
 }
 
 function parseStat(input: string): Map<string, { additions: number; deletions: number; binary: boolean }> {
@@ -51,11 +58,13 @@ function parseStat(input: string): Map<string, { additions: number; deletions: n
 
     const [, rawPath, rawChange] = match;
     const path = normalizeStatPath(rawPath);
-    const binary = /Bin\s+\d+\s+->\s+\d+\s+bytes/.test(rawChange);
+    const binary = /Bin\s+\d+\s+->\s+\d+\s+bytes/.test(rawChange ?? "");
     const additions = binary ? 0 : count(rawChange, "+");
     const deletions = binary ? 0 : count(rawChange, "-");
 
-    counts.set(path, { additions, deletions, binary });
+    if (path !== undefined) {
+      counts.set(path, { additions, deletions, binary });
+    }
   }
 
   return counts;

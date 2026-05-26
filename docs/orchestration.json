@@ -1,0 +1,20 @@
+{
+  "name": "diffticket",
+  "type": "local-cli",
+  "network": false,
+  "mutatesRepositoryByDefault": false,
+  "pipeline": [
+    "git-diff",
+    "parse",
+    "classify-surfaces",
+    "detect-risks",
+    "suggest-verification",
+    "render"
+  ],
+  "checks": [
+    "npm run check",
+    "npm test",
+    "npm run smoke",
+    "npm run package:smoke"
+  ]
+}
