@@ -16,7 +16,9 @@
   },
   "files": [
     "dist/src",
-    "README.md"
+    "README.md",
+    "LICENSE",
+    "SECURITY.md"
   ],
   "scripts": {
     "build": "tsc -p tsconfig.json",
@@ -41,5 +43,13 @@
   "devDependencies": {
     "@types/node": "^20.19.0",
     "typescript": "^5.8.3"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rogerchappel/diffticket.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rogerchappel/diffticket/issues"
+  },
+  "homepage": "https://github.com/rogerchappel/diffticket#readme"
 }
