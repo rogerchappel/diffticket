@@ -46,6 +46,15 @@ diffticket reads local git metadata and package files only. It does not call
 hosted services or transmit diff contents. See [SECURITY.md](SECURITY.md) for
 vulnerability reporting guidance.
 
+## Verification
+
+Use the package scripts as the public smoke gates before publishing or changing CLI behavior.
+
+- `npm run release:check`
+- `npm run test`
+- `npm run smoke`
+- `npm run check`
+
 ## License
 
 MIT
