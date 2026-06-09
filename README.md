@@ -68,6 +68,7 @@ Use the package scripts as the public smoke gates before publishing or changing 
 - `npm run release:check`
 - `npm run test`
 - `npm run smoke`
+- `npm run package:smoke`
 - `npm run check`
 
 ## License
