@@ -25,6 +25,15 @@ diffticket brief --from main --output change-ticket.md
 The brief includes changed-file surfaces, churn counts, deterministic risk
 hints, and likely verification commands from `package.json`.
 
+## Limitations
+
+- `diffticket` reads local git state. Fetch or update your base branch before
+  creating briefs that depend on current remote history.
+- Risk hints are deterministic review prompts, not a guarantee that a change is
+  safe or complete.
+- The CLI does not post to issue trackers or hosted services; copy the generated
+  brief into the destination you choose.
+
 ## Verify
 
 Run the local validation script before opening a pull request:
