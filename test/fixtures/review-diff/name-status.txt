@@ -1,0 +1,4 @@
+M	src/index.ts
+M	package.json
+D	test/old.test.ts
+R100	docs/old-guide.md	docs/new-guide.md

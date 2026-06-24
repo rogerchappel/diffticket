@@ -1,0 +1,6 @@
+{
+  "scripts": {
+    "test": "node --test",
+    "build": "tsc -p tsconfig.json"
+  }
+}

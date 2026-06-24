@@ -1,0 +1,4 @@
+ src/index.ts                    | +++
+ package.json                    | +
+ test/old.test.ts                | --
+ docs/{old-guide.md => new-guide.md} | ++
