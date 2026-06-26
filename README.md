@@ -25,6 +25,17 @@ diffticket brief --from main --output change-ticket.md
 The brief includes changed-file surfaces, churn counts, deterministic risk
 hints, and likely verification commands from `package.json`.
 
+For a reproducible demo, run the temporary change brief script:
+
+```sh
+bash demo/run-temp-change-brief.sh
+```
+
+It creates a throwaway git repository, makes one local change, emits Markdown
+and JSON briefs, and checks that the expected changed file and verification
+fields are present. A short recording outline is available in
+[docs/promo/temp-change-brief.md](docs/promo/temp-change-brief.md).
+
 ## Limitations
 
 - `diffticket` reads local git state. Fetch or update your base branch before
