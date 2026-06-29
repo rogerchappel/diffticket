@@ -47,6 +47,12 @@ fields are present. A short recording outline is available in
 
 ## Verify
 
+Run the full local release gate:
+
+```sh
+npm run release:check
+```
+
 Run the local validation script before opening a pull request:
 
 ```sh
